@@ -4,9 +4,6 @@ app = Ursina()
 
 
 
-
-Entity.default_shader = lit_with_shadows_shader
-
 ground = Entity(model='plane', collider='box', scale=256, texture='grass', texture_scale=(4,4))
 player = Player()
 editor_camera = EditorCamera(enabled=False, ignore_paused=True)

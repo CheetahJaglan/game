@@ -59,18 +59,23 @@ def cancel_command_mode():
 def pause_input(key):
     global command_mode, command_field
     if key == 'tab':
-        if not command_mode:
-            command_mode = True
-            application.paused = True
-            mouse.locked = not application.paused
-            command_field = InputField(default_value='', position=(-0.3, 0.4), scale=(0.6, 0.1), ignore_paused=True)
-            command_field.active = True
-        else:
-            cancel_command_mode()
-            mouse.locked = True
+    #     if not command_mode:
+    #         command_mode = True
+    #         application.paused = True
+    #         mouse.locked = not application.paused
+    #         command_field = InputField(default_value='', position=(-0.3, 0.4), scale=(0.6, 0.1), ignore_paused=True)
+    #         command_field.active = True
+    #     else:
+    #         cancel_command_mode()
+    #         mouse.locked = True
 
-    if command_mode and key == 'enter' and command_field:
-        on_command_submit(command_field.text)
+    # if command_mode and key == 'enter' and command_field:
+    #     on_command_submit(command_field.text)
+        editor_camera.enabled = not editor_camera.enabled
+        player.cursor.enabled = not editor_camera.enabled
+        mouse.locked = not editor_camera.enabled
+        editor_camera.position = player.position 
+
 
 
 pause_handler = Entity(ignore_paused=True, input=pause_input)

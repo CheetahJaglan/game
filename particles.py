@@ -2,8 +2,8 @@ from libraries import *
 class ParticleSystem(Entity):
     def __init__(self, **kwargs):
         # Duration of the particle animation (in seconds)
-        self.duration = kwargs.pop('duration', 0.25)
-        self.number_of_particles = kwargs.pop('particle_count', 300)
+        self.duration = kwargs.pop('duration', 0.4)
+        self.number_of_particles = kwargs.pop('particle_count', 400)
         
         # Compute initial positions and random directions for each particle.
         points = [Vec3(0, 0, 0) for _ in range(self.number_of_particles)]

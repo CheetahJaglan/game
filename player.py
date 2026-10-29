@@ -8,7 +8,7 @@ class Player(Entity):
         super().__init__()
         self.speed = 8
         self.height = height
-        self.camera_pivot = Entity(parent=self, y=self.height+0.5, z=self.z+.30)
+        self.camera_pivot = Entity(parent=self, y=self.height+0.5, z=self.z-1)
         self.z = -10
         self.x = 0
         self.y = 100
@@ -23,6 +23,8 @@ class Player(Entity):
         self.actor.node().setBounds(OmniBoundingVolume())
         self.actor.node().setFinal(True)
         self.actor.setTwoSided(True)
+        self.actor.clearColor()
+
         self.actor.loop('idle')
         self.actor.setH(180)
         self.current_animation = 'idle'
@@ -35,9 +37,9 @@ class Player(Entity):
 
         self.gravity = 0.3
         self.grounded = False
-        self.jump_height = 12
-        self.jump_up_duration = 2.5
-        self.fall_after = 1.1 # will interrupt jump up
+        self.jump_height = 8
+        self.jump_up_duration =1.9
+        self.fall_after = 0.9 # will interrupt jump up
         self.jumping = False
         self.air_time = 0
         self.hp = 100
@@ -146,6 +148,7 @@ class Player(Entity):
         self.air_time = 0
         self.grounded = True
         self.jump_anim = False
+        ParticleSystem(x = self.x, z = self.z)
 
         
     def on_enable(self):
