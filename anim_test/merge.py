@@ -1,3 +1,5 @@
+# to be run with blender
+# "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" -b -P merge.py -- player_all.glb player.fbx idle.fbx Jogging.fbx Running.fbx Jump.fbx
 import bpy, sys, os
 
 out, base, *extras = sys.argv[sys.argv.index('--') + 1:]
