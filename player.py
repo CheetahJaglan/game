@@ -148,7 +148,7 @@ class Player(Entity):
         self.air_time = 0
         self.grounded = True
         self.jump_anim = False
-        ParticleSystem(x = self.x, z = self.z)
+        ParticleSystem(x = self.x, z = self.z, y = self.y)
 
         
     def on_enable(self):
